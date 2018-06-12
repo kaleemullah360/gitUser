@@ -16,6 +16,7 @@ gitUser uses following open source tootls and libs to work properly:
 * [Typescript] - Typescript 
 * [NodeJs] - NodeJs with NPM.
 * [Bootstrap 4] - great UI for displaying resposive elements
+* [angular-http-server] - run production build i.e ./dist folder.
 
 And of course gitUser itself is open source with a [public repository](https://github.com/kaleemullah360/gitUser)
  on GitHub.
@@ -28,7 +29,8 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 $ cd gitUser
-$ npm instal
+$ npm install
+$ sudo npm i -g angular-http-server
 $ ng serve
 ```
 
@@ -36,5 +38,5 @@ For production environments...
 
 ```sh
 $ ng build
-$ cd dist/ && angular-http-server --port 3000
+$ cd dist/gitUser/ && angular-http-server -p 3000
 ```
