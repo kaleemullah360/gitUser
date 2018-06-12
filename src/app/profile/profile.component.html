@@ -1,0 +1,37 @@
+<hr>
+<div class="container-fluid">
+  <div class="card">
+<div class="media">
+	<a href="https://github.com/{{!(userObj?.login)? '-' : userObj?.login}}/">
+  <img class="align-self-start mr-3 border border-primary" [src]="userObj?.avatar_url" style="width:15rem; height:auto;" alt="{{!(userObj?.name)? '-' : userObj?.name}}"></a>
+  <div class="media-body align-self-end mr-3">
+    <h5 class="mt-0">{{!(userObj?.name)? '-' : userObj?.name}}</h5>
+      <p>Email:
+        <a href="mailto:{{!(userObj?.login)? '-' : userObj?.login}}@github.com">
+          <span>{{!(userObj?.login)? userObj?.login : userObj?.login}}@github.com</span>
+        </a>
+      </p>
+    <p>{{!(userObj?.bio)? '-' : userObj?.bio}}</p>
+    <a [routerLink]="['/people']" class="">Go Back</a>
+    </div>
+  </div>
+  </div>
+
+<!--  -->
+<hr>
+  <div class="card">
+    <div class="card-header">
+      Followers
+    </div>
+<ul class="list-unstyled list-group list-group-flush">
+  <li *ngFor="let follower of flwrList" class="media list-group-item">
+  	<a href="https://github.com/{{!(follower?.login)? '-' : follower?.login}}/">
+    <img class="align-self-start mr-3" [src]="follower?.avatar_url" style="width: 64px; height: 64px;" alt="{{!(follower?.login)? '-' : follower?.login}}"></a>
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{!(follower?.login)? '-' : follower?.login}}</h5>
+      {{!(follower?.type)? '-' : follower?.type}}
+    </div>
+  </li>
+</ul>
+</div>
+</div>

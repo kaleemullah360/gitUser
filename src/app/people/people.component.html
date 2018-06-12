@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      Find Github Users
+    </div>
+    <div class="card-body">
+      <form class="form-inline" #userForm="ngForm" >
+        <div class="form-group mx-sm-3 mb-2">
+          <input type="text" class="form-control" minlength="1" required maxlength="50" name="uName"
+          [(ngModel)]="userObj.name"  #name="ngModel" 
+          (change)="userObj.name = name.value" placeholder="user name" >
+          <div style="color:red;" *ngIf="name.errors && (name.dirty || name.touched || name.pristine )" >
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2" (click)="fetchUsers()" [disabled]="!userForm.valid || disabled" >Search</button>
+      </form>
+    </div>
+    <div *ngIf="usrList?.items" class="card-body">
+      <h5 class="card-title">{{usrList?.total_count}} Users Found</h5>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" [ngClass]="{'disabled' : page==1? true : false}" ><a class="page-link" (click)="paginate(page - 1)">Previous</a></li>
+          <li *ngFor="let it of range; let p = index" class="page-item" 
+          [ngClass]="{'active' : (p+1)==page? true : false}" ><a class="page-link" (click)="paginate(p + 1)">{{p + 1}}</a></li>
+          <li class="page-item" [ngClass]="{'disabled' : page==count? true : false}" ><a class="page-link" (click)="paginate(page + 1)">Next</a></li>
+        </ul>
+      </nav>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead class="thead-dark" >
+            <tr>
+              <th>Login</th>
+              <th>id</th>
+              <th>Type</th>
+              <th>Site Admin</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of usrList?.items" >
+              <td>
+                <a id="userImg" class="float-container" [routerLink]="['/profile']" [queryParams]="{id: user?.login}" >
+                  <img [src]="user?.avatar_url" class="mh-10 border border-primary" style="width: 50px; height: 50px;" alt="{{!(user?.login)? '-' : user?.login}}" />
+                  <span class="name">{{!(user?.login)? '-' : user?.login}}</span>
+                </a>
+              </td>
+              <td>{{!(user?.id)? '-' : user?.id}}</td>
+              <td>{{!(user?.type)? '-' : user?.type}}</td>
+              <td>{{!(user?.site_admin)? '-' : user?.site_admin}}</td>
+              <td>{{!(user?.score)? '-' : user?.score}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
