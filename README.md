@@ -1,27 +1,40 @@
-# GitUser
+# gitUser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
+[![N|Solid](https://www.shareicon.net/data/128x128/2016/07/08/116973_development_512x512.png)](https://nodesource.com/products/nsolid)
 
-## Development server
+gitUser is Angular powered web app that features.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  - search user by username or email
+  - See all found users in paginated list
+  - View selected user profile and followers
 
-## Code scaffolding
+### Tech
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+gitUser uses following open source tootls and libs to work properly:
 
-## Build
+* [Angular] - Angular 6!
+* [Typescript] - Typescript 
+* [NodeJs] - NodeJs with NPM.
+* [Bootstrap 4] - great UI for displaying resposive elements
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+And of course gitUser itself is open source with a [public repository](https://github.com/kaleemullah360/gitUser)
+ on GitHub.
 
-## Running unit tests
+### Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+gitUser requires [Node.js](https://nodejs.org/) v9+ to run.
 
-## Running end-to-end tests
+Install the dependencies and devDependencies and start the server.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```sh
+$ cd gitUser
+$ npm instal
+$ ng serve
+```
 
-## Further help
+For production environments...
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```sh
+$ ng build
+$ cd dist/ && angular-http-server --port 3000
+```
